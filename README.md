@@ -13,8 +13,8 @@ Through this project, we wanted to investigate the relationship between income d
 
 ## Data Sources
 
-1. [Seattle Census Tract Data](https://data-seattlecitygis.opendata.arcgis.com/datasets/9075e8c912a24c4b9458af8866c72ae7)\
-2. [Per capita income and aggregate income over the last 12 months](https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::per-capita-income-and-aggregate-income-in-the-past-12-months-in-inflation-adjusted-dollars/about)\
+1. [Seattle Census Tract Data](https://data-seattlecitygis.opendata.arcgis.com/datasets/9075e8c912a24c4b9458af8866c72ae7)
+2. [Per capita income and aggregate income over the last 12 months](https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::per-capita-income-and-aggregate-income-in-the-past-12-months-in-inflation-adjusted-dollars/about)
 3. [Light Rail Station Overlay](https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::station-area-overlay-light-rail/explore?location=47.601176%2C-122.261905%2C12.81)
 
 ## Applied Libraries
