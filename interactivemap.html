@@ -2,11 +2,13 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Light Rail stations and income Data in Washington State</title>
+        <title>Light rail stations and income data in Washington State</title>
         <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     
         <!-- Including the Mapbox GL CSS file -->
         <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/main.css">
     
         <!-- Including the Mapbox GL JS file -->
         <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
@@ -46,7 +48,7 @@
              on the page. */
             .map-overlay {
                 position: absolute;
-                bottom: 0;
+                bottom:0;
                 left: 0;
                 background: rgba(255, 255, 255, 0.8);
                 border-style: solid;
@@ -59,9 +61,9 @@
             }
     
             #features {
-                top: 0;
+                top: 50px;
                 height: 130px;
-                margin-top: 20px;
+                margin-top: 40px;
                 width: 300px;
             }
     
@@ -98,6 +100,22 @@
         </div>
     </div>
     <div class='map-overlay' id='legend'></div>
+    <div class="topnav" id="myTopnav">
+        <!-- Links to different sections -->
+        <a href="index.html">Main Page</a>
+
+        <!-- Active link pointing to the interactivemap.html page -->
+        <a class="active" href="interactivemap.html">Interactive Map</a>
+
+        <a href="section2.html">Geography</a>
+        <a href="section3.html">Attractions</a>
+        <a href="acknowledgments.html">Acknowledgments</a>
+
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links on smaller screens -->
+        <a href="javascript:void(0);" class="icon">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
     <script>
         // initialize basemmap
         mapboxgl.accessToken =
@@ -114,11 +132,6 @@
             let response = await fetch('assets/seattle_income.geojson');
             let state_data = await response.json();
 
-            map.addSource('stations', {
-                type: 'geojson',
-                data: 'assets/stations.geojson'
-            });
-            
             map.on('load', function loadingData() {
                 map.addSource('state_data', {
                     type: 'geojson',
@@ -188,19 +201,39 @@
                 const state = map.queryRenderedFeatures(point, {
                     layers: ['state_data_layer']
                 });
-                document.getElementById('text-description').innerHTML = state.length ?
-                    `<h3>${state[0].properties.UVDA_AREA}</h3><p><strong><em>${state[0].properties.capital_income}</strong> USD</em></p>` :
-                    `<p>Hover over a place!</p>`;    
+                const textDescription = document.getElementById('text-description');
+
+                textDescription.innerHTML = state.length ?
+                    `<h3>${state[0].properties.UVDA_AREA}</h3><p><strong><em>$${state[0].properties.capital_income}</strong> USD</em></p>` :
+                    `<p>Hover over a place!</p>`;
+
+                // Adjust the left position of the text
+                textDescription.style.left = '45px';
             });
 
-            map.addLayer({
-                id: 'stations',
-                type: 'fill',
-                source: 'stations',
-                paint: {
-                    'fill-color': '#555',
-                    'fill-opacity': 0.9
-                }
+            map.addSource('stations', {
+                type: 'geojson',
+                data: 'assets/stations.geojson'
+            });
+
+            map.loadImage('/img/light-rail-icon.png', (error, image) => {
+                if (error) throw error;
+
+                map.addImage('light-rail-icon', image);
+
+                map.addLayer({
+                    id: 'stations-layer',
+                    type: 'symbol',
+                    source: 'stations',
+                    layout: {
+                        'icon-image': 'light-rail-icon',
+                        'icon-size': 0.05,
+                        'icon-allow-overlap': true
+                    },
+                    paint: {
+                        'icon-opacity': 1,
+                    }
+                });
             });
 
         }   
