@@ -7,9 +7,10 @@
 For our project, we chose to incorporate elements learned from labs 2 and 3. Our application has 3 main components: A main page with a quick description of the project, an interactive choropleth map representing the capital income for each census tract within the city of Seattle, and an evaluation page with interpretations of data and a clearer income map. Within the interactive map, we chose to use the topbar navigation elements from Lab 2. We overlaid that map with points representing each Link station, allowing us to compare the different income levels with where the stations are located. We chose census tracts to delineate the income distributions because the data was easily accessible and showed clear splits within the income distribution across the different neighborhoods being represented. The darker colors represent the higher income and the lighter colors represent the lower income. There is a clear pattern within the income distribution that we can see represented through the map; the higher income areas often congregate closer to the water and closer together, away from the inner city, where the neighborhoods with the lower incomes are situated. The Link stations are clearly represented on the map with points in the form of the Link logo and allow for easy analysis of the income levels in the same area. Within the evaluation page, we show a clear explanation of our interpretation of the spatial analysis our map allows, and include an income map displaying the same concepts: a clearer choropleth map showing income distribution in relation to train stations. Showing the income distribution on two different maps works to reinforce understanding of the relationship we are trying to represent. The interactive map gives the user the ability to zoom in and out of each census tract to get close-up understanding of where each Link station is situated, and the simpler choropleth on the evaluation page works as a clear, overall picture of the relationship that is helpful when understanding our analysis. 
 
 ## Screenshots
-1. <strong>Interactive Map</strong>
+<strong>Interactive Map</strong>
 <img src="img/interactivemap.png" alt = "Interactive choropleth map of Seattle">
-2. <strong>Income Map</strong>
+<strong>Income Map</strong>
+<br>
 <img src="img/328finalpic.png" alt = "Income map">
 
 ## Analysis of Results
