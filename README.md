@@ -35,4 +35,4 @@ Through this project, we wanted to investigate the relationship between income d
 2. Mapbox API - to fetch map styles and data
 
 ## Acknowledgements
-We would like to express our gratitude to the City of Seattle for generously providing the geospatial data used in creating this interactive map. Special recognition goes to the dedicated team at the City of Seattle for their commitment to transparency and accessibility in sharing valuable information about Light Rail stations and income distribution.
+We would like to express our gratitude to the City of Seattle for generously providing the geospatial data used in creating this interactive choropleth map. Special recognition goes to the dedicated team at the City of Seattle for their commitment to transparency and accessibility in sharing the information we used about Light Rail stations and income distribution. We would also like to give special thanks to Lena Han from The Urbanist for her article on Seattle’s inequality and diversity with Light Rail for inspiring this project. 
