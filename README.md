@@ -29,7 +29,6 @@ Through this project, we wanted to investigate the relationship between income d
 1. Mapbox gl js
 2. FontAwesome - hamburger icon
 
-
 ## Web Services
 1. Github - For hosting
 2. Mapbox API - to fetch map styles and data
