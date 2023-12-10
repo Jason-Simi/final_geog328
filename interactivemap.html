@@ -87,7 +87,8 @@
                 cursor: unset;
             }
         </style>
-    </head>
+</head>
+
 <body>
     <div id="map"></div>
     <div class='map-overlay' id='features'>
@@ -96,6 +97,7 @@
             <p>Hover over a Place!</p>
         </div>
     </div>
+    <div class='map-overlay' id='legend'></div>
     <script>
         // initialize basemmap
         mapboxgl.accessToken =
@@ -108,81 +110,49 @@
         });
 
         // load data and add as layer
-        map.on('load', async function () {
-            // Load capital income GeoJSON
-            let response = await fetch('assets/capital income.geojson');
-            let capital_income = await response.json();
+        async function geojsonFetch() {
+            let response = await fetch('assets/seattle_income.geojson');
+            let state_data = await response.json();
 
-            // Add capital income layer
-            map.addSource('capital_income', {
-                type: 'geojson',
-                data: capital_income
-            });
-
-            map.addLayer({
-                'id': 'capital_income_layer',
-                'type': 'fill',
-                'source': 'capital_income',
-                'paint': {
-                    'fill-color': [
-                        'step',
-                        ['get', 'capital_income'],
-                        // ... rest of your color settings
-                    ],
-                    'fill-opacity': 0.4
-                }
-            });
-
-            // Add stations layer
             map.addSource('stations', {
                 type: 'geojson',
                 data: 'assets/stations.geojson'
             });
-
-            map.addLayer({
-                id: 'stations',
-                type: 'fill',
-                source: 'stations',
-                paint: {
-                    'fill-color': '#888',
-                    'fill-opacity': 0.4
-                }
-            });
-        });
-
+            
             map.on('load', function loadingData() {
-                map.addSource('capital_income', {
+                map.addSource('state_data', {
                     type: 'geojson',
-                    data: capital_income
+                    data: state_data
                 });
 
                 map.addLayer({
-                    'id': 'capital_income_layer',
+                    'id': 'state_data_layer',
                     'type': 'fill',
-                    'source': 'capital_income',
+                    'source': 'state_data',
                     'paint': {
                         'fill-color': [
                             'step',
-                            ['get', 'capital_income'],
-                            '#DAF7A6', 2000,
-                            '#FFC300', 4000,
-                            '#FF5733', 6000,
-                            '#C70039', 8000,
-                            '#900C3F', 10000,
+                            ['get', "capital_income"],
+                            '#DAF7A6', 30000,
+                            '#FFC300', 50000,
+                            '#FF5733', 70000,
+                            '#C70039', 90000,
+                            '#900C3F', 110000,
                             '#581845'
                         ],
                         'fill-outline-color': '#BBBBBB',
-                        'fill-opacity': 0.7,
+                        'fill-opacity': 0.5,
                     }
                 });
 
                 const layers = [
-                    '0-2000',
-                    '2000-4000',
-                    '4000-6000',
-                    '6000-8000',
-                    '8000-10000',
-                    '10000 and more',
+                    '0-30000',
+                    '30000-50000',
+                    '50000-70000',
+                    '70000-90000',
+                    '90000-100000',
+                    '110000 and more',
+                    'Link Stations'
                 ];
                 const colors = [
                     '#DAF7A670',
@@ -191,11 +161,12 @@
                     '#C7003970',
                     '#900C3F70',
                     '#58184570',
+                    '#555'
                 ];
 
                 // create legend
                 const legend = document.getElementById('legend');
-                legend.innerHTML = "<b>Capital Income<br>(dollor)</b><br><br>";
+                legend.innerHTML = "<b>Capital income<br>(USD)</b><br><br>";
 
 
                 layers.forEach((layer, i) => {
@@ -215,13 +186,24 @@
 
             map.on('mousemove', ({point}) => {
                 const state = map.queryRenderedFeatures(point, {
-                    layers: ['capital_income_layer']
+                    layers: ['state_data_layer']
                 });
                 document.getElementById('text-description').innerHTML = state.length ?
-                    `<h3>${state[0].properties.name}</h3><p><strong><em>${state[0].properties.casePer10k}</strong> income</em></p>` :
-                    `<p>Hover over a state!</p>`;
+                    `<h3>${state[0].properties.UVDA_AREA}</h3><p><strong><em>${state[0].properties.capital_income}</strong> USD</em></p>` :
+                    `<p>Hover over a place!</p>`;    
             });
 
+            map.addLayer({
+                id: 'stations',
+                type: 'fill',
+                source: 'stations',
+                paint: {
+                    'fill-color': '#555',
+                    'fill-opacity': 0.9
+                }
+            });
+
+        }   
         // Call the function to fetch GeoJSON data and load the map
         geojsonFetch();
     </script>
