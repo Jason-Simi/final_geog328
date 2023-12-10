@@ -12,12 +12,10 @@ Through this map and all of the features within it, we can see a clear pattern i
 Through this project, we wanted to investigate the relationship between income demographics and Link stations. We had 3 main objectives: evaluate the income distribution of residents in close proximity to stations to find trends and disparities, investigate the accessibility and affordability of different income groups to transportation options, and analyze the influence of Light Rail stations on income levels in nearby neighborhoods and communities. 
 
 ## Data Sources
-<ol>
-  <li>[Seattle Census Tract Data](https://data-seattlecitygis.opendata.arcgis.com/datasets/9075e8c912a24c4b9458af8866c72ae7)</li>
-  <li>[Per capita income and aggregate income over the last 12 months](https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::per-capita-income-and-aggregate-income-in-the-past-12-months-in-inflation-adjusted-dollars/about)</li>
-  <li>[Light Rail Station Overlay](https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::station-area-overlay-light-rail/explore?location=47.601176%2C-122.261905%2C12.81)</li>
-</ol>
 
+[Seattle Census Tract Data](https://data-seattlecitygis.opendata.arcgis.com/datasets/9075e8c912a24c4b9458af8866c72ae7)
+[Per capita income and aggregate income over the last 12 months](https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::per-capita-income-and-aggregate-income-in-the-past-12-months-in-inflation-adjusted-dollars/about)
+[Light Rail Station Overlay](https://data-seattlecitygis.opendata.arcgis.com/datasets/SeattleCityGIS::station-area-overlay-light-rail/explore?location=47.601176%2C-122.261905%2C12.81)
 
 ## Applied Libraries
 
