@@ -3,6 +3,7 @@
     overflow: hidden;
     position:fixed;
     z-index: 2;
+    top: 0;
   }
 
   .topnav a {
@@ -31,3 +32,34 @@
   .topnav .icon {
     display: none;
   }
+
+  body {
+    background-image: url('../img/seattle.png'); 
+    background-size: 100% auto; 
+    background-position: center; 
+}
+
+  .image-text-section {
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    margin-top: 30px;
+    margin-right: 15%
+}
+
+.text-section {
+  margin-top: 10%;
+  margin-right: 10%;
+  margin-left:5%; 
+  font-size: 20px;
+}
+
+.text-section h2 {
+  font-size: 34px;
+ text-align: center;
+}
+
+.text-section p {
+  font-size: 24px;
+ 
+}
