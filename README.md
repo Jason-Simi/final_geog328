@@ -1,4 +1,4 @@
-# Mapping Areas Around Link Stations: Income and Accessibility
+# Mapping Income Around Link Stations
 [Web Application](https://jason-simi.github.io/interactivemap.html)
 
 <img src="img/train.png" alt = "Link train at station">
