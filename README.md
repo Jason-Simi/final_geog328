@@ -1,5 +1,5 @@
 # Mapping Income Around Link Stations
-[Web Application](https://jason-simi.github.io/index.html)
+[Web Application](https://jason-simi.github.io/final_geog328/index.html)
 
 <img src="img/train.png" alt = "Link train at station">
 
