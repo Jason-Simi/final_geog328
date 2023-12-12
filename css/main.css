@@ -39,6 +39,10 @@
     background-position: center; 
 }
 
+.text-section .desc {
+  font-size: 24px;
+ text-align: center;
+}
   .image-text-section {
     display:flex;
     flex-direction: row-reverse;
@@ -52,6 +56,8 @@
   margin-right: 10%;
   margin-left:5%; 
   font-size: 20px;
+  background-color: rgba(211, 211, 211, 0.6);
+  padding:5px;
 }
 
 .text-section h2 {
@@ -63,3 +69,9 @@
   font-size: 24px;
  
 }
+
+
+.text-section ol {
+  font-size: 28px;
+}
+
